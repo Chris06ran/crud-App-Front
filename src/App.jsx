@@ -29,7 +29,7 @@ const App = () => {
         setTheme(theme === 'light' ? 'dark' : 'light');
     };
 
-    // Función para crear una nueva tarea (sin backend).
+    // Función para crear una nueva tarea 
     const handleCreateTask = (e) => {
         e.preventDefault();
         if (newTask.title.trim()) {
@@ -40,24 +40,24 @@ const App = () => {
         }
     };
 
-    // Función para actualizar una tarea (sin backend).
+    // Función para actualizar una tarea 
     const handleUpdateTask = (task) => {
         setTasks(tasks.map((t) => (t.id === task.id ? { ...t, completed: !t.completed } : t)));
     };
 
-    // Función para borrar una tarea (sin backend).
+    // Función para borrar una tarea 
     const handleDeleteTask = (taskId) => {
         setTasks(tasks.filter((task) => task.id !== taskId));
     };
 
-    // Función para editar una tarea (sin backend).
+    // Función para editar una tarea
     const handleEditTask = (e) => {
         e.preventDefault();
         setTasks(tasks.map((t) => (t.id === editingTask.id ? editingTask : t)));
         setEditingTask(null);
     };
     
-    // Filtramos las tareas basadas en el estado del filtro (sin necesidad de llamadas a la API)
+    // Filtramos las tareas basadas en el estado del filtro
     const filteredTasks = tasks.filter(task => {
         if (filter === 'completed') return task.completed;
         if (filter === 'incomplete') return !task.completed;
@@ -68,7 +68,7 @@ const App = () => {
         <div className={`${theme === 'light' ? 'bg-gray-50 text-gray-800' : 'bg-gray-800 text-gray-100'} min-h-screen p-4`}>
             <div className="container mx-auto max-w-4xl">
                 <h1 className="text-4xl font-extrabold mb-8 text-center">
-                    Gestor de Tareas Estático
+                    Gestor de Tareas CRUD
                 </h1>
 
                 <div className="flex justify-end mb-4">
